@@ -12,3 +12,53 @@
   <other checked="True">
   </other>
 </root>
+<root>
+  <title>選択住所-住所2</title>
+  <key>p17kIM43CRUDdmXt</key>
+  <replace search="永福（アルク）" replace="" regex="False" />
+  <replace search="市ヶ谷（アルク）" replace="市ヶ谷ビル5F" regex="False" />
+  <replace search="市ヶ谷2階（アルク）" replace="市ヶ谷ビル2F" regex="False" />
+  <replace search="市ヶ谷8階（アルク）" replace="市ヶ谷ビル8F" regex="False" />
+  <replace search="大阪（アルク）" replace="御堂筋MTRビル12F" regex="False" />
+  <replace search="大郷ビル5階（アルク）" replace="市ヶ谷大郷ビル5F" regex="False" />
+  <replace search="福岡（アルク）" replace="紙与天神ビル3F" regex="False" />
+  <replace search="名古屋（アルク）" replace="セントラル野田ビル4F" regex="False" />
+  <other checked="True">
+  </other>
+</root>
+<root>
+  <title>選択住所-Address1</title>
+  <key>GYJfGm5CKYfQb88t</key>
+  <replace search="永福（アルク）" replace="2-54-12 Eifuku, Suginami-ku," regex="False" />
+  <replace search="市ヶ谷（アルク）" replace="5th Floor, Ichigaya Bldg., 4-2-6 Kudankita," regex="False" />
+  <replace search="市ヶ谷2階（アルク）" replace="2nd Floor, Ichigaya Bldg., 4-2-6 Kudankita," regex="False" />
+  <replace search="市ヶ谷8階（アルク）" replace="8th Floor, Ichigaya Bldg., 4-2-6 Kudankita," regex="False" />
+  <replace search="大阪（アルク）" replace="12th Floor, Midosuji MTR Bldg., 3-6-3 Awajimachi," regex="False" />
+  <replace search="大郷ビル5階（アルク）" replace="5th Floor, Ichigaya Daigo Bldg.," regex="False" />
+  <replace search="福岡（アルク）" replace="3rd Floor, Kamiyo Tenjin Bldg., 4-10-10 Watanabedori," regex="False" />
+  <replace search="名古屋（アルク）" replace="4th Floor, Central Noda Bldg., 1-10-35 Higashisakura," regex="False" />
+  <other checked="True">
+  </other>
+</root>
+<root>
+  <title>選択住所-Address2</title>
+  <key>XdDOQrpb79mwfwSi</key>
+  <replace search="永福（アルク）" replace="Tokyo 168-8611, Japan" regex="False" />
+  <replace search="市ヶ谷（アルク）" replace="Chiyoda-ku, Tokyo 102-0073, Japan" regex="False" />
+  <replace search="市ヶ谷2階（アルク）" replace="Chiyoda-ku, Tokyo 102-0073, Japan" regex="False" />
+  <replace search="市ヶ谷8階（アルク）" replace="Chiyoda-ku, Tokyo 102-0073, Japan" regex="False" />
+  <replace search="大阪（アルク）" replace="Chuo-ku, Osaka 541-0047, Japan" regex="False" />
+  <replace search="大郷ビル5階（アルク）" replace="1-10 Gobancho, Chiyoda-ku, Tokyo" regex="False" />
+  <replace search="福岡（アルク）" replace="Chuo-ku, Fukuoka 810-0004, Japan" regex="False" />
+  <replace search="名古屋（アルク）" replace="Higashi-ku, Nagoya 461-0005, Japan" regex="False" />
+  <other checked="True">
+  </other>
+</root>
+<root>
+  <title>選択住所-Address3</title>
+  <key>XdDOQrpb79mwfwSi</key>
+  <replace search="大郷ビル5階（アルク）" replace="102-0076, Japan" regex="False" />
+  <replace search="大郷ビル５階（アルク）" replace="102-0076, Japan" regex="False" />
+  <other checked="True">
+  </other>
+</root>
