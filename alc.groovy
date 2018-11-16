@@ -3,7 +3,7 @@ env.injectionOne = {cassette, record, labelList, imageTable ->
  myInjectionOne(cassette, record, labelList, imageTable);
 };
 if(!env.multiLayout) {
- doProduce(1, env.imageTable); // ページ数 1
+ doProduce(2, env.imageTable); // ページ数 1
 }
 //段落自動取詰(上基準)メソッド
 def linespan = 0;//mm
@@ -26,13 +26,18 @@ def paragraphBuilder(recordList,partsList,positionY,linespan,lineheight){
 //独自の刺し込み処理
 def myInjectionOne(cassette, record, labelList, imageTable) {
 
-  def additionalLabelList = ["住所1","住所2","Address1","Address2","Address3","URL"];
+  def additionalLabelList = ["住所1","住所2","Address1","Address2","Address3","URL","電話英1","ファックス英1"];
 
   class1 = record["肩書き1"];
   class2 = record["肩書き2"];
   class3 = record["肩書き3"];
   class4 = record["肩書き4"];
   class5 = record["肩書き5"];
+  classEn1 = record["肩書き英1"];
+  classEn2 = record["肩書き英2"];
+  classEn3 = record["肩書き英3"];
+  classEn4 = record["肩書き英4"];
+  classEn5 = record["肩書き英5"];
   selectedAddress = record["選択住所"];
 
   switch(selectedAddress){
@@ -103,15 +108,30 @@ def myInjectionOne(cassette, record, labelList, imageTable) {
 
   jusho1 = record["住所1"];
   jusho2 = record["住所2"];
-  adr1 = record["address1"];
-  adr2 = record["address2"];
-  adr3 = record["address3"];
+  adr1 = record["Address1"];
+  adr2 = record["Address2"];
+  adr3 = record["Address3"];
   email = record["Email"];
   tel1 = record["電話1"];
   fax1 = record["ファックス1"];
   mobile = record["携帯"];
   url = "www.test.com";
   free = record["フリースペース"];
+
+  if(tel1){
+    telEn1 = "+81-" + tel1.substring(1,tel1.size());
+  }else{
+    telEn1 = "";
+  }
+
+  if(fax1){
+    faxEn1 = "+81-" + fax1.substring(1,fax1.size());
+  }else{
+    faxEn1 = "";
+  }
+
+  record["電話英1"] = telEn1;
+  record["ファックス英1"] = faxEn1;
 
   //基本関数
   labelList.each {
@@ -128,6 +148,8 @@ def myInjectionOne(cassette, record, labelList, imageTable) {
   if(omote != null){
     //表面のパーツ操作スクリプト
     //関連パーツ取得
+    pSei = getPartsByLabel("姓", 1, cassette);
+    pMei = getPartsByLabel("名", 1, cassette);
     pClass1 = getPartsByLabel("肩書き1", 1, cassette);
     pClass2 = getPartsByLabel("肩書き2", 1, cassette);
     pClass3 = getPartsByLabel("肩書き3", 1, cassette);
@@ -135,9 +157,6 @@ def myInjectionOne(cassette, record, labelList, imageTable) {
     pClass5 = getPartsByLabel("肩書き5", 1, cassette);
     pJusho1 = getPartsByLabel("住所1", 1, cassette);
     pJusho2 = getPartsByLabel("住所2", 1, cassette);
-    pAdr1 = getPartsByLabel("Address1", 1, cassette);
-    pAdr2 = getPartsByLabel("Address2", 1, cassette);
-    pAdr3 = getPartsByLabel("Address3", 1, cassette);
     pEmail = getPartsByLabel("Email", 1, cassette);
     pTel1 = getPartsByLabel("電話1", 1, cassette);
     pFax1 = getPartsByLabel("ファックス1", 1, cassette);
@@ -159,7 +178,38 @@ def myInjectionOne(cassette, record, labelList, imageTable) {
     lineheight = 3;
     paragraphBuilder(recordList,partsList,positionY,linespan,lineheight);
 
+    pMei.transform.translateX = pSei.transform.translateX + pSei.boundBox.width + 1;
+    pMei.transform.translateY = pSei.transform.translateY;
 
+  }else{
+    pFirstName = getPartsByLabel("FirstName", 1, cassette);
+    pFamilyName = getPartsByLabel("FamilyName", 1, cassette);
+    pClassEn1 = getPartsByLabel("肩書き英1", 1, cassette);
+    pClassEn2 = getPartsByLabel("肩書き英2", 1, cassette);
+    pClassEn3 = getPartsByLabel("肩書き英3", 1, cassette);
+    pClassEn4 = getPartsByLabel("肩書き英4", 1, cassette);
+    pClassEn5 = getPartsByLabel("肩書き英5", 1, cassette);
+    pAdr1 = getPartsByLabel("Address1", 1, cassette);
+    pAdr2 = getPartsByLabel("Address2", 1, cassette);
+    pAdr3 = getPartsByLabel("Address3", 1, cassette);
+    pEmail = getPartsByLabel("Email", 1, cassette);
+    pTelEn1 = getPartsByLabel("電話英1", 1, cassette);
+    pFaxEn1 = getPartsByLabel("ファックス英1", 1, cassette);
+    pMobile = getPartsByLabel("携帯", 1, cassette);
+    pUrl = getPartsByLabel("URL", 1, cassette);
 
+    recordList = [classEn1,classEn2,classEn3,classEn4,classEn5];
+    partsList = [pClassEn1,pClassEn2,pClassEn3,pClassEn4,pClassEn5];
+    positionY = 20;
+    linespan = 3;
+    lineheight = 3;
+    paragraphBuilder(recordList,partsList,positionY,linespan,lineheight);
+
+    recordList = [adr1,adr2,adr3,email,telEn1,faxEn1,mobile,url];
+    partsList = [pAdr1,pAdr2,pAdr3,pEmail,pTelEn1,pFaxEn1,pMobile,pUrl];
+    positionY = 40;
+    linespan = 3;
+    lineheight = 3;
+    paragraphBuilder(recordList,partsList,positionY,linespan,lineheight);
   }
 }
