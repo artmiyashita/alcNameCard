@@ -10,7 +10,7 @@ def linespan = 0;//mm
 def lineheight = 0;//mm
 def positionY = 0;//mm
 def positionX = 0;//mm
-def paragraphBuilder(recordList,partsList,positionY,linespan,lineheight){
+def paragraphBuilder2(recordList,partsList,positionY,linespan,lineheight){
   x = recordList.size();
   for(i=0; i<x; i++){
     partsList[i].transform.translateY = positionY + linespan;
@@ -169,14 +169,14 @@ def myInjectionOne(cassette, record, labelList, imageTable) {
     positionY = 20;
     linespan = 3;
     lineheight = 3;
-    paragraphBuilder(recordList,partsList,positionY,linespan,lineheight);
+    paragraphBuilder2(recordList,partsList,positionY,linespan,lineheight);
 
     recordList = [jusho1,jusho2,email,tel1,fax1,mobile,url,free];
     partsList = [pJusho1,pJusho2,pEmail,pTel1,pFax1,pMobile,pUrl,pFree];
     positionY = 40;
     linespan = 3;
     lineheight = 3;
-    paragraphBuilder(recordList,partsList,positionY,linespan,lineheight);
+    paragraphBuilder2(recordList,partsList,positionY,linespan,lineheight);
 
     pMei.transform.translateX = pSei.transform.translateX + pSei.boundBox.width + 1;
     pMei.transform.translateY = pSei.transform.translateY;
@@ -203,13 +203,13 @@ def myInjectionOne(cassette, record, labelList, imageTable) {
     positionY = 20;
     linespan = 3;
     lineheight = 3;
-    paragraphBuilder(recordList,partsList,positionY,linespan,lineheight);
+    paragraphBuilder2(recordList,partsList,positionY,linespan,lineheight);
 
     recordList = [adr1,adr2,adr3,email,telEn1,faxEn1,mobile,url];
     partsList = [pAdr1,pAdr2,pAdr3,pEmail,pTelEn1,pFaxEn1,pMobile,pUrl];
     positionY = 40;
     linespan = 3;
     lineheight = 3;
-    paragraphBuilder(recordList,partsList,positionY,linespan,lineheight);
+    paragraphBuilder2(recordList,partsList,positionY,linespan,lineheight);
   }
 }
