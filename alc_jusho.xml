@@ -1,0 +1,14 @@
+<root>
+  <title>選択住所-住所1</title>
+  <key>BH3SPsSwNsYFczHz</key>
+  <replace search="永福（アルク）" replace="〒168-8611 東京都杉並区永福2-54-12" regex="False" />
+  <replace search="市ヶ谷（アルク）" replace="〒102-0073 東京都千代田区九段北4-2-6" regex="False" />
+  <replace search="市ヶ谷2階（アルク）" replace="〒102-0073 東京都千代田区九段北4-2-6" regex="False" />
+  <replace search="市ヶ谷8階（アルク）" replace="〒102-0073 東京都千代田区九段北4-2-6" regex="False" />
+  <replace search="大阪（アルク）" replace="〒541-0047 大阪府大阪市中央区淡路町3-6-3" regex="False" />
+  <replace search="大郷ビル5階（アルク）" replace="〒102-0076 東京都千代田区五番町1-10" regex="False" />
+  <replace search="福岡（アルク）" replace="〒810-0004 福岡県福岡市中央区渡辺通4-10-10" regex="False" />
+  <replace search="名古屋（アルク）" replace="〒461-0005 愛知県名古屋市東区東桜1-10-35" regex="False" />
+  <other checked="True">
+  </other>
+</root>
