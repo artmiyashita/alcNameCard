@@ -26,7 +26,7 @@ def paragraphBuilder(recordList,partsList,positionY,linespan,lineheight){
 //独自の刺し込み処理
 def myInjectionOne(cassette, record, labelList, imageTable) {
 
-  def additionalLabelList = ["住所1","住所2","Address1","Address2","Address3"];
+  def additionalLabelList = ["住所1","住所2","Address1","Address2","Address3","URL"];
 
   class1 = record["肩書き1"];
   class2 = record["肩書き2"];
@@ -107,9 +107,10 @@ def myInjectionOne(cassette, record, labelList, imageTable) {
   adr2 = record["address2"];
   adr3 = record["address3"];
   email = record["Email"];
-  tel = record["電話1"];
-  fax = record["ファックス1"];
+  tel1 = record["電話1"];
+  fax1 = record["ファックス1"];
   mobile = record["携帯"];
+  url = "www.test.com";
   free = record["フリースペース"];
 
   //基本関数
@@ -132,44 +133,33 @@ def myInjectionOne(cassette, record, labelList, imageTable) {
     pClass3 = getPartsByLabel("肩書き3", 1, cassette);
     pClass4 = getPartsByLabel("肩書き4", 1, cassette);
     pClass5 = getPartsByLabel("肩書き5", 1, cassette);
-    pjusho1 = getPartsByLabel("住所1", 1, cassette);
-    pjusho2 = getPartsByLabel("住所2", 1, cassette);
+    pJusho1 = getPartsByLabel("住所1", 1, cassette);
+    pJusho2 = getPartsByLabel("住所2", 1, cassette);
     pAdr1 = getPartsByLabel("Address1", 1, cassette);
     pAdr2 = getPartsByLabel("Address2", 1, cassette);
     pAdr3 = getPartsByLabel("Address3", 1, cassette);
     pEmail = getPartsByLabel("Email", 1, cassette);
-    pTel = getPartsByLabel("電話1", 1, cassette);
-    pFax = getPartsByLabel("ファックス1", 1, cassette);
+    pTel1 = getPartsByLabel("電話1", 1, cassette);
+    pFax1 = getPartsByLabel("ファックス1", 1, cassette);
     pMobile = getPartsByLabel("携帯", 1, cassette);
+    pUrl = getPartsByLabel("URL", 1, cassette);
     pFree = getPartsByLabel("フリースペース", 1, cassette);
 
-    recordList = [];
-    paragraphBuilder(recordList,partsList,positionY,linespan,lineheight)
+    recordList = [class1,class2,class3,class4,class5];
+    partsList = [pClass1,pClass2,pClass3,pClass4,pClass5];
+    positionY = 20;
+    linespan = 3;
+    lineheight = 3;
+    paragraphBuilder(recordList,partsList,positionY,linespan,lineheight);
+
+    recordList = [jusho1,jusho2,email,tel1,fax1,mobile,url,free];
+    partsList = [pJusho1,pJusho2,pEmail,pTel1,pFax1,pMobile,pUrl,pFree];
+    positionY = 40;
+    linespan = 3;
+    lineheight = 3;
+    paragraphBuilder(recordList,partsList,positionY,linespan,lineheight);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 
   }
 }
